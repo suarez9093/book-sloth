@@ -1,68 +1,93 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Task 1: Designing the database schema for our Community tab
 
-## Available Scripts
+Your first task is to design the database tables that the Community feature will use. The goal of this task is to reach a correct database schema that could be implemented in MySQL.
 
-In the project directory, you can run:
+Requirements:
 
-### `yarn start`
+- Design a DB schema for the example included above.
+- Use a relational database.
+- You should create all tables, and key constraints in the process.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Task 2: Writing an application
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+The second, and last part of this assignment is to write an application that uses your database. For this part, **you DO NOT have to do both parts (2.a and 2.b), so you can choose between working on the front end or back end set of instructions.**
 
-### `yarn test`
+#### 2.a Writing a front end application
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+For the front end application, you will need to build a simple web app that replicates the design showed above.
 
-### `yarn build`
+#### Requirements:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- You should use [React.](https://reactjs.org)
+- You should replicate the following design:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+<img src="https://user-images.githubusercontent.com/55850581/93656609-6d0d9100-f9f9-11ea-9eb9-5e1a0e187179.png" width="800" height="700">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- You should show the person's picture, first, and last name. The other fields are optional.
+- Posts should expand / colapse its replies.
 
-### `yarn eject`
+#### 2.b: Writing a back end application
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+For the back end application, you will need to build a simple REST API composed of two endpoints.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- GET the discussion thread
+  - this endpoint should return the following payload:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+[
+  {
+    "message": "I just finished reading The Martian and I loved the ending! What do you think?",
+    "first_name": "Carlos",
+    "last_name": "Diaz",
+    "email": "carlos@email.com",
+    "photo": "https://booksloth-profilejpg",
+    "replies": [...]
+  },
+  {
+    "message": "I think Maven wasn't very likable in Red Queen.",
+    "first_name": "Elizabeth",
+    "last_name": "Lauren",
+    "email": "elizabeth@email.com",
+    "photo": "https://booksloth-profilejpg",
+    "replies": [
+      {
+        "message": "Why? I think his actions were very important for his character development. Without it he would never change his original point of view.",
+        "first_name": "Maureen",
+        "last_name": "",
+        "email": "maureen@booksloth.com",
+        "photo": "https://booksloth-profilejpg"
+      }
+    ]
+  },
+  {
+    "message": "I enjoyed Recursion much better that his other book Dark Matter...",
+    "first_name": "Lincy",
+    "last_name": "L.",
+    "email": "lincy@email.com",
+    "photo": "https://booksloth-profilejpg",
+    "replies": [...]
+  },
+  {
+    "message": "Lady Midnight was amazing and super entertaining! I loved the characters so much!",
+    "first_name": "Kat",
+    "last_name": "",
+    "email": "kat@email.com",
+    "photo": "https://booksloth-profilejpg",
+    "replies": [...]
+  }
+]
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Post a new post to the Community thread.
+- Reply to posts (optional)
 
-## Learn More
+#### Requirements:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Create a small REST API written in [express.js](http://expressjs.com/)
+- Use mysql, and connet to the relational database you created in the first step.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Attached is a file you can import to [the Postman app](http://postman.com/) and use it as reference to complete this test, and to test your code. Any technical and/or design details are up to you. The result should look and feel like something you would be proud of. The purpose of this coding assignment is to discuss it in your second interview, and further understand your technical knowledge.
 
-### Code Splitting
+\*\*You should commit changes to a git repo, give access to [booksloth's](https://github.com/booksloth) github user, committing with frequency and with the type of commit messages you would write on a typical project. When you are done, please create a git repo locally and zip it. Send your zip file to your link provided in this email.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Submitting something you're proud of is far more important than any amount of time spent or not spent on the challenge. Make sure you're happy with the result! If you have any technical questions, feel free to send them our way. We look forward to hearing back from you.
