@@ -1,7 +1,7 @@
 .header {
   background-image: linear-gradient(to right, #5bc0da, #834bca);
   color: white;
-  padding: 0.25em 3em;
+  padding: 1em 0;
 }
 .navigation {
   display: flex;
@@ -13,7 +13,7 @@
   width: 200px;
 }
 .social-links {
-  margin: 2em;
+  margin: 1em;
   padding: 0;
   list-style-type: none;
   display: flex;
@@ -28,6 +28,9 @@
   letter-spacing: 2px;
 }
 @media (min-width: 600px) {
+  .header {
+    padding: 1em 9em;
+  }
   .navigation {
     flex-direction: row;
     justify-content: space-between;

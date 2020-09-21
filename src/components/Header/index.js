@@ -12,13 +12,13 @@ function Header() {
 
         <ul className="social-links">
           <li className="social-link">
-            <i class="fab fa-facebook-f"></i>
+            <i className="fab fa-facebook-f"></i>
           </li>
           <li className="social-link">
-            <i class="fab fa-instagram"></i>
+            <i className="fab fa-instagram"></i>
           </li>
           <li className="social-link">
-            <i class="fab fa-twitter"></i>
+            <i className="fab fa-twitter"></i>
           </li>
         </ul>
       </nav>
