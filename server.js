@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3001;
 const mysql = require("mysql");
+require("dotenv").config();
 const connection = mysql.createConnection({
   host: process.env.REACT_APP_HOST,
   user: process.env.REACT_APP_USERNAME,

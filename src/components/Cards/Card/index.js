@@ -2,7 +2,7 @@ import React from "react";
 
 function Card(props) {
   return (
-    <div class="card">
+    <div className="card">
       <img className="card-img" src="" alt="" />
       <div className="card-main">
         <p className="card-user"></p>
