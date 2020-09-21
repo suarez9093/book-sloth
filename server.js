@@ -3,10 +3,10 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const mysql = require("mysql");
 const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "Slackind1!",
-  database: "userdb",
+  host: process.env.REACT_APP_HOST,
+  user: process.env.REACT_APP_USERNAME,
+  password: process.env.REACT_APP_MYSQL_PASSWORD,
+  database: process.env.REACT_APP_DATABASE,
 });
 
 app.use(express.urlencoded({ extended: true }));
