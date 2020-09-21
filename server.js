@@ -9,12 +9,6 @@ require("dotenv");
 //   password: process.env.REACT_APP_MYSQL_PASSWORD,
 //   database: process.env.REACT_APP_DATABASE,
 // });
-const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "Slackind1!",
-  database: "userdb",
-});
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
