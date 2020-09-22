@@ -25,12 +25,11 @@ function Card({ message, first_name, last_name, email, photo }) {
             <i class="fas fa-share-alt"></i>
           </div>
         </div>
-        {/* Icon */}
-        {/* Icon */}
       </div>
-      <div className="card-response">
+      <div className="card-response-container">
         <button className="card-btn">
-          12 min <i class="fas fa-greater-than"></i>
+          <span className="card-btn-text">12 min</span>
+          <i class="fas fa-greater-than card-btn-icon"></i>
         </button>
         <div className="card-tag">Ask</div>
       </div>

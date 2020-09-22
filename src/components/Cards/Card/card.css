@@ -15,8 +15,14 @@
   margin: 1em;
 }
 .card-main {
+  margin-right: auto;
   display: flex;
   flex-direction: column;
+  justify-self: flex-start;
+}
+.card-user {
+  margin-bottom: 0;
+  font-weight: bold;
 }
 .interact-icons {
   display: flex;
@@ -29,13 +35,31 @@
   transform: scaleX(-1);
 }
 
-.card-response {
+.card-response-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
 }
 .card-btn {
+  display: flex;
   background: none;
   border: 0;
+  color: #b0b0b0;
+}
+.card-btn:hover {
+  cursor: pointer;
+}
+.card-btn-text {
+  margin-right: 1em;
+}
+.card-btn-icon {
+  font-size: 1em;
+}
+.card-tag {
+  background-color: #b0b0b0;
+  border: 1px solid #b0b0b0;
+  padding: 0.15em 2em;
+  border-radius: 20px;
+  color: white;
 }

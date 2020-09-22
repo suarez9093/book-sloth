@@ -16,7 +16,6 @@ function Header() {
               className="social-link"
               href="https://www.facebook.com/booksloth/"
             >
-              {" "}
               <i className="fab fa-facebook-f"></i>
             </a>
           </li>
