@@ -1,13 +1,14 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3001;
-const mysql = require("mysql");
-require("dotenv").config();
+const mysql = require("mysql2");
+
 const connection = mysql.createConnection({
-  host: process.env.REACT_APP_HOST,
-  user: process.env.REACT_APP_USERNAME,
-  password: process.env.REACT_APP_MYSQL_PASSWORD,
-  database: process.env.REACT_APP_DATABASE,
+  host: process.env.HOST,
+  user: process.env.USERNAME,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE,
 });
 
 app.use(express.urlencoded({ extended: true }));

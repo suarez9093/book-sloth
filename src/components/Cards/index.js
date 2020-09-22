@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import Card from "./Card";
+import "./cards.css";
 import { context } from "../context/index";
 
 function Cards() {
@@ -10,11 +11,10 @@ function Cards() {
   }, []);
   const getUsers = async () => {
     try {
-      const response = await fetch("http://localhost:3001/users", {
-        method: "GET",
-      });
+      const response = await fetch("http://localhost:3001/users");
       const data = await response.json();
       setUsers(data);
+      console.log(data);
     } catch (err) {
       console.log(err);
     }
