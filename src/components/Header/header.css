@@ -2,6 +2,7 @@
   background-image: linear-gradient(to right, #5bc0da, #834bca);
   color: white;
   padding: 1em 0;
+  margin-bottom: 1em;
 }
 .navigation {
   display: flex;

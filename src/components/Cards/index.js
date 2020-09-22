@@ -24,7 +24,14 @@ function Cards() {
       {users && (
         <>
           {users.map((user) => (
-            <Card key={user.id} message={user.message} />
+            <Card
+              key={user.id}
+              message={user.message}
+              first_name={user.first_name}
+              last_name={user.last_name}
+              email={user.email}
+              photo={user.photo}
+            />
           ))}
         </>
       )}
