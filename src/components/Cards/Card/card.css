@@ -63,3 +63,8 @@
   border-radius: 20px;
   color: white;
 }
+
+.replies {
+  border: 1px solid red;
+  /* display: flex; */
+}
