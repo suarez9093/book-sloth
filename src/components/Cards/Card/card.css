@@ -65,6 +65,8 @@
 }
 
 .replies {
-  border: 1px solid red;
-  /* display: flex; */
+  padding: 0 18px;
+  /* display: none; */
+  overflow: hidden;
+  background-color: #f1f1f1;
 }

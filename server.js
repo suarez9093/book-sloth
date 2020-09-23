@@ -37,8 +37,20 @@ app.listen(PORT, () => {
 });
 
 app.get("/users", (req, res) => {
-  connection.query("SELECT * FROM users", (err, results, fields) => {
+  let data = {};
+  const getUsersAndResponses =
+    "SELECT * FROM users INNER JOIN Replies ON users.id = Replies.MessageID;";
+  const users = "SELECT * FROM users";
+
+  connection.query(getUsersAndResponses, (err, results, fields) => {
     if (err) throw err;
-    res.send(results);
+    console.log("users: ", results);
+    data.replies = results;
+  });
+  connection.query(users, (err, results, fields) => {
+    if (err) throw err;
+    console.log("users: ", results);
+    data.users = results;
+    res.send(data);
   });
 });

@@ -5,7 +5,7 @@ import { context } from "../context/index";
 
 function Cards() {
   const { users, setUsers } = useContext(context);
-  console.log(users);
+
   useEffect(() => {
     getUsers();
   }, []);
@@ -14,7 +14,6 @@ function Cards() {
       const response = await fetch("http://localhost:3001/users");
       const data = await response.json();
       setUsers(data);
-      console.log(data);
     } catch (err) {
       console.log(err);
     }
@@ -23,9 +22,10 @@ function Cards() {
     <div>
       {users && (
         <>
-          {users.map((user) => (
+          {users.users.map((user) => (
             <Card
               key={user.id}
+              users={users}
               message={user.message}
               first_name={user.first_name}
               last_name={user.last_name}

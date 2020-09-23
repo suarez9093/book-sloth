@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./card.css";
 
-function Card({ message, first_name, last_name, email, photo }) {
+function Card({ message, first_name, last_name, email, photo, users }) {
+  const [isHidden, setIsHidden] = useState(true);
+  function toggleReplies() {
+    setIsHidden((prevState) => !prevState);
+  }
+
   return (
     <>
       <div className="card">
@@ -19,29 +24,31 @@ function Card({ message, first_name, last_name, email, photo }) {
             </div>
             <div className="interact-icon">
               <span>
-                <i class="fas fa-heart"></i> 3
+                <i className="fas fa-heart"></i> 3
               </span>
             </div>
             <div className="interact-icon">
-              <i class="fas fa-share-alt"></i>
+              <i className="fas fa-share-alt"></i>
             </div>
           </div>
         </div>
         <div className="card-response-container">
-          <button className="card-btn">
+          <button onClick={toggleReplies} className="card-btn">
             <span className="card-btn-text">12 min</span>
-            <i class="fas fa-greater-than card-btn-icon"></i>
+            <i className="fas fa-greater-than card-btn-icon"></i>
           </button>
           <div className="card-tag">Ask</div>
         </div>
+        {!isHidden && (
+          <div className="replies">
+            <img className="card-img" src={users.replies[0].photo} alt="" />
+            <div className="card-main">
+              <p className="card-user">Hello</p>
+              <p className="card-message">{users.replies[0].message}</p>
+            </div>
+          </div>
+        )}
       </div>
-      {/* <div className="replies">
-        <img src="" alt="" />
-        <div className="card-main">
-          <p className="card-user">Hello</p>
-          <p className="card-message">{message}</p>
-        </div>
-      </div> */}
     </>
   );
 }
