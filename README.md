@@ -3,7 +3,7 @@
 ![Project Name](gif/bookSloth.gif)
 
 <br/>
- <a href="https://suarez9093.github.io/book-sloth/">View live Demo</a>
+ <a align="center" href="https://suarez9093.github.io/book-sloth/">View live Demo</a>
 
 ## About The Challenge
 
