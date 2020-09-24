@@ -1,8 +1,13 @@
-.card {
-  margin: 0 auto;
+.card-container {
   border: 1px solid #e0e0e0;
-  border-radius: 15px;
   max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  border-radius: 15px;
   display: flex;
   padding: 1em;
   justify-content: space-between;
@@ -64,9 +69,22 @@
   color: white;
 }
 
-.replies {
-  padding: 0 18px;
-  /* display: none; */
-  overflow: hidden;
-  background-color: #f1f1f1;
+.reply-container {
+  display: flex;
+}
+.reply-container .card::before {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 150px;
+  margin-top: 10px;
+  background: #e0e0e0;
+}
+.reply-container .card {
+  width: 80%;
+
+  margin-left: 4em;
+}
+.reply-container .card-btn-text {
+  color: #b0b0b0;
 }
