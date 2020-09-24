@@ -37,24 +37,16 @@ function Card({ message, first_name, last_name, email, photo, users }) {
           <div className="card-response-container">
             <button onClick={toggleReplies} className="card-btn">
               <span className="card-btn-text">12 min</span>
-              <i className="fas fa-greater-than card-btn-icon"></i>
+              {isHidden && (
+                <i className="fas fa-greater-than card-btn-icon"></i>
+              )}
+              {!isHidden && (
+                <i className="fas fa-greater-than card-btn-rotate"></i>
+              )}
             </button>
             <div className="card-tag">Ask</div>
           </div>
         </div>
-        {/* {!isHidden && (
-        <div className="replies">
-          <img
-            className="card-img"
-            src={users.replies[0].photo}
-            alt="profile image"
-          />
-          <div className="card-main">
-            <p className="card-user">Hello</p>
-            <p className="card-message">{users.replies[0].message}</p>
-          </div>
-        </div>
-         )} */}
         {!isHidden && (
           <div className="reply-container">
             <div className="card">
