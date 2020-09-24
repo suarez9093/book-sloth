@@ -1,4 +1,4 @@
- <h3 align="center">Book Sloth Coding Challenge</h3>
+ <h3 align="center">BookSloth Coding Challenge</h3>
 
 ![Project Name](gif/bookSloth.gif)
 
