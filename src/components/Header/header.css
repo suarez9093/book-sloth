@@ -2,6 +2,7 @@
   background-image: linear-gradient(to right, #5bc0da, #834bca);
   color: white;
   padding: 1em 0;
+  margin-bottom: 1em;
 }
 .navigation {
   display: flex;
@@ -19,6 +20,15 @@
   display: flex;
 }
 .social-link {
+  color: white;
+}
+.social-link:hover {
+  color: #5bc0da;
+}
+.social-link:focus {
+  color: #5bc0da;
+}
+.social-item {
   margin: 0.25em;
   font-size: 1.5em;
 }

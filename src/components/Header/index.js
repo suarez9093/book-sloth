@@ -11,14 +11,29 @@ function Header() {
         />
 
         <ul className="social-links">
-          <li className="social-link">
-            <i className="fab fa-facebook-f"></i>
+          <li className="social-item">
+            <a
+              className="social-link"
+              href="https://www.facebook.com/booksloth/"
+            >
+              <i className="fab fa-facebook-f"></i>
+            </a>
           </li>
-          <li className="social-link">
-            <i className="fab fa-instagram"></i>
+          <li className="social-item">
+            <a
+              className="social-link"
+              href="https://www.instagram.com/bookslothapp/?hl=en"
+            >
+              <i className="fab fa-instagram"></i>
+            </a>
           </li>
-          <li className="social-link">
-            <i className="fab fa-twitter"></i>
+          <li className="social-item">
+            <a
+              className="social-link"
+              href="https://twitter.com/bookslothapp?lang=en"
+            >
+              <i className="fab fa-twitter"></i>
+            </a>
           </li>
         </ul>
       </nav>

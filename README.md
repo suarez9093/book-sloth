@@ -91,3 +91,5 @@ Attached is a file you can import to [the Postman app](http://postman.com/) and 
 \*\*You should commit changes to a git repo, give access to [booksloth's](https://github.com/booksloth) github user, committing with frequency and with the type of commit messages you would write on a typical project. When you are done, please create a git repo locally and zip it. Send your zip file to your link provided in this email.
 
 Submitting something you're proud of is far more important than any amount of time spent or not spent on the challenge. Make sure you're happy with the result! If you have any technical questions, feel free to send them our way. We look forward to hearing back from you.
+
+https://gist.github.com/booksloth/ed398ad4958e05da1f80a41d0d197dfa

@@ -1,0 +1,95 @@
+.card-container {
+  border: 1px solid #e0e0e0;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  border-radius: 15px;
+  display: flex;
+  padding: 1em;
+  justify-content: space-between;
+}
+.card-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 1em;
+}
+.card-main {
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-self: flex-start;
+}
+.card-user {
+  margin-bottom: 0;
+  font-weight: bold;
+}
+.interact-icons {
+  display: flex;
+}
+.interact-icon {
+  margin-right: 1em;
+  color: #b0b0b0;
+}
+.share-icon {
+  transform: scaleX(-1);
+}
+
+.card-response-container {
+  padding-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-btn {
+  display: flex;
+  background: none;
+  border: 0;
+  color: #b0b0b0;
+}
+.card-btn:hover {
+  cursor: pointer;
+}
+.card-btn-text {
+  margin-right: 1em;
+}
+.card-btn-icon {
+  font-size: 1em;
+}
+.card-btn-rotate {
+  transform: rotate(90deg) translateY(-100%);
+  transform-origin: top left;
+}
+.card-tag {
+  background-color: #b0b0b0;
+  border: 1px solid #b0b0b0;
+  padding: 0.15em 2em;
+  border-radius: 20px;
+  color: white;
+}
+
+.reply-container {
+  display: flex;
+}
+.reply-container .card::before {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 150px;
+  margin-top: 10px;
+  background: #e0e0e0;
+}
+.reply-container .card {
+  width: 80%;
+
+  margin-left: 4em;
+}
+.reply-container .card-btn-text {
+  color: #b0b0b0;
+}

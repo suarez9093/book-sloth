@@ -1,13 +1,14 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3001;
-const mysql = require("mysql");
-require("dotenv").config();
+const mysql = require("mysql2");
+
 const connection = mysql.createConnection({
-  host: process.env.REACT_APP_HOST,
-  user: process.env.REACT_APP_USERNAME,
-  password: process.env.REACT_APP_MYSQL_PASSWORD,
-  database: process.env.REACT_APP_DATABASE,
+  host: process.env.HOST,
+  user: process.env.USERNAME,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE,
 });
 
 app.use(express.urlencoded({ extended: true }));
@@ -36,8 +37,20 @@ app.listen(PORT, () => {
 });
 
 app.get("/users", (req, res) => {
-  connection.query("SELECT * FROM users", (err, results, fields) => {
+  let data = {};
+  const getUsersAndResponses =
+    "SELECT * FROM users INNER JOIN Replies ON users.id = Replies.MessageID;";
+  const users = "SELECT * FROM users";
+
+  connection.query(getUsersAndResponses, (err, results, fields) => {
     if (err) throw err;
-    res.send(results);
+    console.log("users: ", results);
+    data.replies = results;
+  });
+  connection.query(users, (err, results, fields) => {
+    if (err) throw err;
+    console.log("users: ", results);
+    data.users = results;
+    res.send(data);
   });
 });
