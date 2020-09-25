@@ -32,7 +32,15 @@ function Card({
 
   function toggleLike(e) {
     const heart = e.target;
-    heart.style.color = "red";
+    if (heart.style.color === "") {
+      heart.style.color = "red";
+      heart.style.fontSize = "1.25em";
+      setLike((prevState) => prevState + 1);
+    } else {
+      heart.style.color = "";
+      heart.style.fontSize = "1em";
+      setLike((prevState) => prevState - 1);
+    }
   }
 
   return (
