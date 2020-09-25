@@ -15,8 +15,8 @@ function Card({
   const [isHidden, setIsHidden] = useState(true);
   const [like, setLike] = useState(likes);
   const [isLiked, setIsLiked] = useState(false);
+  const [isSharing, setIsSharing] = useState(false);
 
-  console.log(like);
   function toggleReplies(e) {
     const button = e.target;
     const cardResContainer = button.parentNode;
@@ -31,15 +31,26 @@ function Card({
   }
 
   function toggleLike(e) {
-    const heart = e.target;
-    if (heart.style.color === "") {
-      heart.style.color = "red";
-      heart.style.fontSize = "1.25em";
+    const heartBtn = e.target;
+    if (heartBtn.style.color === "") {
+      heartBtn.style.color = "red";
+      heartBtn.style.fontSize = "1.25em";
       setLike((prevState) => prevState + 1);
     } else {
-      heart.style.color = "";
-      heart.style.fontSize = "1em";
+      heartBtn.style.color = "";
+      heartBtn.style.fontSize = "1em";
       setLike((prevState) => prevState - 1);
+    }
+  }
+
+  function toggleModal(e) {
+    console.log(e.target.id);
+    let overlay = document.getElementById("overlay");
+    let button = e.target;
+    if (e.target.id === "") {
+      overlay.style.display = "block";
+    } else if (e.target.id === "close-modal") {
+      overlay.style.display = "none";
     }
   }
 
@@ -56,7 +67,7 @@ function Card({
             <div className="interact-icons">
               <div className="interact-icon">
                 <span>
-                  <i className="fas fa-share share-icon"></i> 12
+                  <i className="fas fa-share reply-icon"></i> 12
                 </span>
               </div>
               <div className="interact-icon">
@@ -65,7 +76,7 @@ function Card({
                 </span>
               </div>
               <div className="interact-icon">
-                <i className="fas fa-share-alt"></i>
+                <i onClick={toggleModal} className="fas fa-share-alt"></i>
               </div>
             </div>
           </div>
@@ -102,7 +113,7 @@ function Card({
             </div>
           </div>
         )} */}
-        {/* {!isHidden && ( */}
+
         <div className="reply-container">
           <div className="card">
             <img className="card-img" src={replies[0].photo} alt="user" />
@@ -117,7 +128,24 @@ function Card({
             </div>
           </div>
         </div>
-        {/* )} */}
+
+        {/*  */}
+      </div>
+      <div id="overlay">
+        <div id="modal">
+          <h2>Share this post</h2>
+          <div className="a2a_kit a2a_kit_size_32 a2a_default_style share-social-container">
+            <a className="a2a_dd" href="https://www.addtoany.com/share"></a>
+            <a className="a2a_button_facebook"></a>
+            <a className="a2a_button_twitter"></a>
+            <a className="a2a_button_email"></a>
+            <a className="a2a_button_linkedin"></a>
+            <a className="a2a_button_reddit"></a>
+          </div>
+          <button onClick={toggleModal} id="close-modal">
+            Close
+          </button>
+        </div>
       </div>
     </>
   );
