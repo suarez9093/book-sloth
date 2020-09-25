@@ -52,6 +52,7 @@ function Cards() {
               last_name={user.last_name}
               email={user.email}
               photo={user.photo}
+              likes={user.likes}
             />
           ))}
         </>
