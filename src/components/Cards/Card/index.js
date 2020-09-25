@@ -1,9 +1,22 @@
 import React, { useState } from "react";
 import "./card.css";
 
-function Card({ message, first_name, last_name, photo, users, replies, id }) {
+function Card({
+  message,
+  first_name,
+  last_name,
+  photo,
+  users,
+  replies,
+  id,
+  likes,
+}) {
   console.log(replies);
   const [isHidden, setIsHidden] = useState(true);
+  const [like, setLike] = useState(likes);
+  const [isLiked, setIsLiked] = useState(false);
+
+  console.log(like);
   function toggleReplies(e) {
     const button = e.target;
     const cardResContainer = button.parentNode;
@@ -15,6 +28,19 @@ function Card({ message, first_name, last_name, photo, users, replies, id }) {
       replyContainer.style.maxHeight = replyContainer.scrollHeight + "px";
     }
     setIsHidden((prevState) => !prevState);
+  }
+
+  function toggleLike(e) {
+    const heart = e.target;
+    if (heart.style.color === "") {
+      heart.style.color = "red";
+      heart.style.fontSize = "1.25em";
+      setLike((prevState) => prevState + 1);
+    } else {
+      heart.style.color = "";
+      heart.style.fontSize = "1em";
+      setLike((prevState) => prevState - 1);
+    }
   }
 
   return (
@@ -35,7 +61,7 @@ function Card({ message, first_name, last_name, photo, users, replies, id }) {
               </div>
               <div className="interact-icon">
                 <span>
-                  <i className="fas fa-heart"></i> 3
+                  <i onClick={toggleLike} className="fas fa-heart"></i> {like}
                 </span>
               </div>
               <div className="interact-icon">
@@ -44,12 +70,7 @@ function Card({ message, first_name, last_name, photo, users, replies, id }) {
             </div>
           </div>
           <div className="card-response-container">
-            <button
-              onClick={(e) => {
-                toggleReplies(e);
-              }}
-              className="card-btn"
-            >
+            <button onClick={toggleReplies} className="card-btn">
               12 min
               {isHidden && (
                 <i className="fas fa-greater-than card-btn-icon"></i>
