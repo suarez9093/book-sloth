@@ -1,7 +1,8 @@
-import React, { useEffect, useContext } from "react";
+import React from "react";
+// import React, { useEffect, useContext } from "react";
 import Card from "./Card";
 import "./cards.css";
-import { context } from "../context/index";
+// import { context } from "../context/index";
 import users from "../../users.json";
 import replies from "../../replies.json";
 
@@ -42,6 +43,7 @@ function Cards() {
         <>
           {users.map((user) => (
             <Card
+              id={user.id}
               replies={replies}
               key={user.id}
               users={users}

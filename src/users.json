@@ -2,7 +2,7 @@
   {
     "id": 1,
     "message": "I just finished reading The Martian and I loved the ending! What do you think?",
-    " first_name": "Carly",
+    "first_name": "Carly",
     "last_name": "Reeds",
     "email": "carly@email.com",
     "photo": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
@@ -10,7 +10,7 @@
   {
     "id": 2,
     "message": "I'm reading Can't See Me. This guy is so motivational!",
-    " first_name": "Lisa",
+    "first_name": "Lisa",
     "last_name": "Brooks",
     "email": "lisa@email.com",
     "photo": "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80"
@@ -18,7 +18,7 @@
   {
     "id": 3,
     "message": "I enjoyed Recursion much better than his other book Dark Matter...",
-    " first_name": "Carlos",
+    "first_name": "Carlos",
     "last_name": "Diaz",
     "email": "carlos@email.com",
     "photo": "https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
