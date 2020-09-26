@@ -132,7 +132,7 @@
   right: 0;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 1;
-  transition: display 5s ease-out;
+  /* transition: display 5s ease-out; */
 }
 
 /*  */

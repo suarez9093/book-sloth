@@ -14,8 +14,6 @@ function Card({
   console.log(replies);
   const [isHidden, setIsHidden] = useState(true);
   const [like, setLike] = useState(likes);
-  const [isLiked, setIsLiked] = useState(false);
-  const [isSharing, setIsSharing] = useState(false);
 
   function toggleReplies(e) {
     const button = e.target;
@@ -44,11 +42,16 @@ function Card({
   }
 
   function toggleModal(e) {
+    // if (replyContainer.style.maxHeight) {
+    //   replyContainer.style.maxHeight = null;
+    // } else {
+    //   replyContainer.style.maxHeight = replyContainer.scrollHeight + "px";
+    // }
     console.log(e.target.id);
     let overlay = document.getElementById("overlay");
-    let button = e.target;
     if (e.target.id === "") {
       overlay.style.display = "block";
+      overlay.style.transition = "2s";
     } else if (e.target.id === "close-modal") {
       overlay.style.display = "none";
     }
