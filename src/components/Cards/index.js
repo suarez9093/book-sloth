@@ -1,29 +1,29 @@
-import React from "react";
-// import React, { useEffect, useContext } from "react";
+// import React from "react";
+import React, { useEffect, useContext } from "react";
 import Card from "./Card";
 import "./cards.css";
-// import { context } from "../context/index";
+import { context } from "../context/index";
 import users from "../../users.json";
 import replies from "../../replies.json";
 
 function Cards() {
-  // const { users, setUsers } = useContext(context);
+  const { users, setUsers } = useContext(context);
 
-  // useEffect(() => {
-  //   getUsers();
-  // }, []);
-  // const getUsers = async () => {
-  //   try {
-  //     const response = await fetch("http://localhost:3001/users");
-  //     const data = await response.json();
-  //     setUsers(data);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
+  useEffect(() => {
+    getUsers();
+  }, []);
+  const getUsers = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/users");
+      const data = await response.json();
+      setUsers(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div>
-      {/* {users && (
+      {users && (
         <>
           {users.users.map((user) => (
             <Card
@@ -37,8 +37,8 @@ function Cards() {
             />
           ))}
         </>
-      )} */}
-
+      )}
+      {/* 
       {users && (
         <>
           {users.map((user) => (
@@ -56,7 +56,7 @@ function Cards() {
             />
           ))}
         </>
-      )}
+      )} */}
     </div>
   );
 }

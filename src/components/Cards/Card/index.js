@@ -16,16 +16,16 @@ function Card({
   const [like, setLike] = useState(likes);
 
   function toggleReplies(e) {
-    const button = e.target;
-    const cardResContainer = button.parentNode;
-    const card = cardResContainer.parentNode;
-    const replyContainer = card.nextSibling;
-    if (replyContainer.style.maxHeight) {
-      replyContainer.style.maxHeight = null;
-    } else {
-      replyContainer.style.maxHeight = replyContainer.scrollHeight + "px";
-    }
-    setIsHidden((prevState) => !prevState);
+    // const button = e.target;
+    // const cardResContainer = button.parentNode;
+    // const card = cardResContainer.parentNode;
+    // const replyContainer = card.nextSibling;
+    // if (replyContainer.style.maxHeight) {
+    //   replyContainer.style.maxHeight = null;
+    // } else {
+    //   replyContainer.style.maxHeight = replyContainer.scrollHeight + "px";
+    // }
+    // setIsHidden((prevState) => !prevState);
   }
 
   function toggleLike(e) {
@@ -117,7 +117,7 @@ function Card({
           </div>
         )} */}
 
-        <div className="reply-container">
+        {/* <div className="reply-container">
           <div className="card">
             <img className="card-img" src={replies[0].photo} alt="user" />
             <div className="card-main">
@@ -130,7 +130,7 @@ function Card({
               <span className="card-btn-text">4 hr</span>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/*  */}
       </div>
