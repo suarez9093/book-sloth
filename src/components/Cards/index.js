@@ -1,14 +1,13 @@
 // import React from "react";
 import React, { useContext } from "react";
 import Card from "./Card";
-import "./cards.css";
-import usersData from "../../users.json";
-import replies from "../../replies.json";
+import { context } from "../context";
 
 function Cards() {
+  const { users, replies } = useContext(context);
   return (
     <div>
-      {usersData.map((user) => (
+      {users.map((user) => (
         <Card key={user.id} users={user} replies={replies} />
       ))}
     </div>

@@ -12,29 +12,14 @@ function Card({ users, replies }) {
     const button = e.target;
     const cardResContainer = button.parentNode;
     const card = cardResContainer.parentNode;
-    console.dir(card);
     const replyContainer = card.nextSibling;
-    console.dir(replyContainer);
     if (replyContainer.style.maxHeight) {
-      replyContainer.style.maxHeight = 0;
+      replyContainer.style.maxHeight = null;
     } else {
       replyContainer.style.maxHeight = replyContainer.scrollHeight + "px";
     }
     setIsHidden((prevState) => !prevState);
   }
-
-  // function reply() {
-  //   console.log(replies[0].reply_user_id);
-  //   let user;
-  //   for (let [key, value] of Object.entries(users)) {
-  //     if (value === replies[0].reply_user_id) {
-  //       user = users;
-  //     }
-  //   }
-  //   setFoundUser(user);
-  // }
-
-  // reply();
 
   function toggleLike(e) {
     const heartBtn = e.target;
