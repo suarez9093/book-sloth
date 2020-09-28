@@ -5,6 +5,15 @@
     "first_name": "Carly",
     "last_name": "Reeds",
     "email": "carly@email.com",
+    "replies": [
+      {
+        "message": "Why? I think his actions were very important for his character development. Without it he would never change his original point of view.",
+        "first_name": "Maureen",
+        "last_name": "Haun",
+        "email": "maureen@booksloth.com",
+        "photo": "https://images.unsplash.com/photo-1521117177129-ca6b2e68cb26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      }
+    ],
     "photo": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
     "likes": 5
   },
@@ -25,5 +34,14 @@
     "email": "carlos@email.com",
     "photo": "https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
     "likes": 7
+  },
+  {
+    "id": 4,
+    "message": "",
+    "first_name": "James",
+    "last_name": "Carter",
+    "email": "james@email.com",
+    "photo": "https://images.unsplash.com/photo-1581466046946-06ea1cdcda9a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+    "likes": 0
   }
 ]
