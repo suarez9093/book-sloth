@@ -10,28 +10,20 @@ CREATE TABLE `User` (
   
   CREATE TABLE Message(
   `message_id` int AUTO_INCREMENT PRIMARY KEY,
-  `user_id` int,
+  `message_user_id` int,
   `message` TEXT,
   FOREIGN KEY (user_id) REFERENCES USER (user_id)
 );
   CREATE TABLE Reply(
   `reply_id` int AUTO_INCREMENT PRIMARY KEY,
-  `message_id` int,
-  `user_id` int,
+  `reply_message_id` int,
+  `reply_user_id` int,
   `reply` TEXT,
   FOREIGN KEY (message_id) REFERENCES Message (message_id),
   FOREIGN KEY (user_id) REFERENCES User (user_id)
 );
 
-  CREATE TABLE Like(
-  `like_id` int AUTO_INCREMENT PRIMARY KEY,
-  `message_id`, REFERENCES Message(message_id)
-  `user_id` int
-  `like` int,
-  FOREIGN KEY (message_id) REFERENCES Message(message_id)
-  FOREIGN KEY (user_id) REFERENCES User(user_id)
-);
-
+ 
 
 -- Inserting into the User table
   INSERT INTO USER VALUES (1,'Carly','Diaz',"carly@email.com",'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80');
@@ -41,7 +33,18 @@ CREATE TABLE `User` (
 
   -- Inserting into the Message Table
 INSERT INTO Message VALUES (1,1, "I just finished reading Can't see me and I loved it! What do you think?");
+INSERT INTO Message VALUES (2,2, "I think Maven wasn't very likable in Red Queen");
+INSERT INTO Message VALUES (3,3, "I enjoyed Recursion much better than his other book Dark Matter...");
+
 
   -- Inserting into the Reply Table
 INSERT INTO Reply VALUES (1,1,4,  "I think David is a very interesting guy. He's very inspirational! A little crazy though");
   
+   CREATE TABLE Like(
+  `like_id` int AUTO_INCREMENT PRIMARY KEY,
+  `message_id`, REFERENCES Message(message_id)
+  `user_id` int
+  `like` int,
+  FOREIGN KEY (message_id) REFERENCES Message(message_id)
+  FOREIGN KEY (user_id) REFERENCES User(user_id)
+);
