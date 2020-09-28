@@ -4,11 +4,11 @@ import Card from "./Card";
 import { context } from "../context";
 
 function Cards() {
-  const { users, replies } = useContext(context);
+  const { users } = useContext(context);
   return (
     <div>
       {users.map((user) => (
-        <Card key={user.id} users={user} replies={replies} />
+        <Card key={user.id} users={user} />
       ))}
     </div>
   );

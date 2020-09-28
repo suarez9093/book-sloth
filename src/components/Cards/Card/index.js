@@ -1,19 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { context } from "../../context";
 import "./card.css";
 
-function Card({ users, replies }) {
-  const { message, first_name, last_name, photo, id, likes } = users;
-  const [foundUser, setFoundUser] = useState();
-
+function Card({ users }) {
+  const { message, first_name, last_name, photo, id, likes, replies } = users;
+  const { like, setLike } = useContext(context);
   const [isHidden, setIsHidden] = useState(true);
-  const [like, setLike] = useState(likes);
-
+  // const [like, setLike] = useState(likes);
+  console.log(replies);
   function toggleReplies(e) {
     const button = e.target;
     const cardResContainer = button.parentNode;
     const card = cardResContainer.parentNode;
     const replyContainer = card.nextSibling;
-    if (replyContainer.style.maxHeight) {
+    if (!replyContainer) {
+      return;
+    } else if (replyContainer.style.maxHeight) {
       replyContainer.style.maxHeight = null;
     } else {
       replyContainer.style.maxHeight = replyContainer.scrollHeight + "px";
@@ -83,18 +85,22 @@ function Card({ users, replies }) {
               <div className="card-tag">Ask</div>
             </div>
           </div>
-          <div className="reply-container">
-            <div className="card">
-              <img className="card-img" src={photo} alt="user" />
-              <div className="card-main">
-                <p className="card-user"></p>
-                <p className="card-message"></p>
-              </div>
-              <div className="card-response-container">
-                <span className="card-btn-text">4 hr</span>
+          {replies && (
+            <div className="reply-container">
+              <div className="card">
+                <img className="card-img" src={replies[0].photo} alt="user" />
+                <div className="card-main">
+                  <p className="card-user">
+                    {replies[0].first_name} {replies[0].last_name}{" "}
+                  </p>
+                  <p className="card-message">{replies[0].message} </p>
+                </div>
+                <div className="card-response-container">
+                  <span className="card-btn-text">4 hr</span>
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       )}
 
