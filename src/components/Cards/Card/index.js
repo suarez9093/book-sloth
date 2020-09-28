@@ -1,13 +1,12 @@
-import React, { useState, useContext } from "react";
-import { context } from "../../context";
+import React, { useState } from "react";
 import "./card.css";
 
 function Card({ users }) {
-  const { message, first_name, last_name, photo, id, likes, replies } = users;
-  const { like, setLike } = useContext(context);
+  const { message, first_name, last_name, photo, likes, replies } = users;
+
   const [isHidden, setIsHidden] = useState(true);
-  // const [like, setLike] = useState(likes);
-  console.log(replies);
+  const [like, setLike] = useState(likes);
+
   function toggleReplies(e) {
     const button = e.target;
     const cardResContainer = button.parentNode;
@@ -25,6 +24,7 @@ function Card({ users }) {
 
   function toggleLike(e) {
     const heartBtn = e.target;
+    console.dir(heartBtn);
     if (heartBtn.style.color === "") {
       heartBtn.style.color = "red";
       heartBtn.style.fontSize = "1.25em";
@@ -37,16 +37,19 @@ function Card({ users }) {
   }
 
   function toggleModal(e) {
-    let overlay = document.getElementById("overlay");
+    let overlay = document.querySelector(".overlay");
     if (e.target.className === "fas fa-share-alt") {
       overlay.style.display = "block";
-    } else if (e.target.id === "close-modal") {
+    } else if (e.target.className === "modal-btn") {
       overlay.style.display = "none";
     }
   }
 
   return (
     <>
+      {/* Message Container
+    ===========================================================
+    */}
       {message && (
         <div className="card-container">
           <div className="card">
@@ -85,6 +88,10 @@ function Card({ users }) {
               <div className="card-tag">Ask</div>
             </div>
           </div>
+
+          {/* Reply Container
+    ===========================================================
+    */}
           {replies && (
             <div className="reply-container">
               <div className="card">
@@ -104,18 +111,53 @@ function Card({ users }) {
         </div>
       )}
 
-      <div id="overlay">
-        <div id="modal">
-          <h2>Share this post</h2>
-          <div className="a2a_kit a2a_kit_size_32 a2a_default_style share-social-container">
-            <a className="a2a_dd" href="https://www.addtoany.com/share"></a>
-            <a className="a2a_button_facebook"></a>
-            <a className="a2a_button_twitter"></a>
-            <a className="a2a_button_email"></a>
-            <a className="a2a_button_linkedin"></a>
-            <a className="a2a_button_reddit"></a>
-          </div>
-          <button onClick={toggleModal} id="close-modal">
+      {/* Modal
+    ===========================================================
+    */}
+
+      <div className="overlay">
+        <div className="modal">
+          <h2 className="modal-title">Share this post</h2>
+          <ul className="modal-share-links">
+            <li className="modal-share-item">
+              <a
+                className="modal-link"
+                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fparse.com"
+                target="_blank"
+                rel="noopener"
+              >
+                <img
+                  className="modal-img"
+                  src="https://cdn.worldvectorlogo.com/logos/facebook-2.svg"
+                  alt="facebook"
+                />
+              </a>
+            </li>
+            <li className="modal-share-item">
+              <a className="modal-link" href="http://www.twitter.com/tweet">
+                <img
+                  className="modal-img"
+                  src="https://upload.wikimedia.org/wikipedia/sco/thumb/9/9f/Twitter_bird_logo_2012.svg/1200px-Twitter_bird_logo_2012.svg.png"
+                  alt="twitter"
+                />
+              </a>
+            </li>
+            <li className="modal-share-item">
+              <a
+                className="modal-link"
+                href="http://www.reddit.com/submit?url=https://stackoverflow.com/questions/24823114/post-to-reddit-via-url&title=Post%20to%20Reddit%20via%20URL"
+              >
+                <img
+                  className="modal-img"
+                  src="https://www.logo.wine/a/logo/Reddit/Reddit-Logomark-Color-Logo.wine.svg"
+                  alt="reddit"
+                />
+              </a>
+            </li>
+            <li className="modal-share-item"></li>
+          </ul>
+
+          <button onClick={toggleModal} className="modal-btn">
             Close
           </button>
         </div>
