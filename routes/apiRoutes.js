@@ -34,10 +34,10 @@ router.post("/", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  const query = `DELETE FROM USER WHERE user_id=${req.params}`;
-  res.send(query);
-  //   connection.query(query, (err, results, fields) => {
-  //     if (err) throw err;
-  //   });
+  const query = `DELETE FROM USER WHERE user_id=${req.params.id}`;
+  connection.query(query, (err, results, fields) => {
+    if (err) throw err;
+    res.send(results);
+  });
 });
 module.exports = router;
