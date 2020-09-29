@@ -32,6 +32,14 @@ router.post("/", (req, res) => {
     }
   });
 });
+router.put("/:id", (req, res) => {
+  const { first_name, last_name, email, photo, message } = req.body;
+  const query = `UPDATE USER SET first_name="${first_name}",last_name="${last_name}",email="${email}",photo="${photo}",message="${message} "WHERE user_id=${req.params.id}`;
+  connection.query(query, (err, results, fields) => {
+    if (err) throw err;
+    res.send(results);
+  });
+});
 
 router.delete("/:id", (req, res) => {
   const query = `DELETE FROM USER WHERE user_id=${req.params.id}`;
