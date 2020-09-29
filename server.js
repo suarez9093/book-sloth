@@ -1,10 +1,15 @@
+/* Dependencies 
+=======================================================
+*/
 require("dotenv").config();
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
 const users = require("./routes/apiRoutes");
 
-// MiddleWare
+/* MiddleWare 
+=======================================================
+*/
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/users", users);
@@ -18,6 +23,9 @@ app.use((req, res, next) => {
   next();
 });
 
+/* Starting Server 
+=======================================================
+*/
 app.listen(PORT, () => {
   console.log(`App listening on PORT: ${PORT}`);
 });
