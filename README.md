@@ -36,3 +36,7 @@ Requirements:
 - [React](https://reactjs.org/)
 - [Express](https://expressjs.com/)
 - [MYSQL](https://www.mysql.com/)
+
+### Issues
+
+- [Open Issues](https://github.com/suarez9093/book-sloth/issues)
