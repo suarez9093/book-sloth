@@ -2,16 +2,25 @@ import React, { useState } from "react";
 import "./card.css";
 
 function Card({ users }) {
+  // Destructuring keys from state passed through context in the Cards component
   const { message, first_name, last_name, photo, likes, replies } = users;
 
+  // Used for the button to toggle replies button image from > to upside down. Consider renaing
   const [isHidden, setIsHidden] = useState(true);
+
+  // Used to update the hearts. Consider moving to context
   const [like, setLike] = useState(likes);
 
   function toggleReplies(e) {
+    // The the button
     const button = e.target;
+    // Get the button's parent node which is the card-response-container
     const cardResContainer = button.parentNode;
+    // get card response container parent
     const card = cardResContainer.parentNode;
+    // get card sibling
     const replyContainer = card.nextSibling;
+    // If there is not a card container??????? look into this line maybe add if there is not a style of maxHeight
     if (!replyContainer) {
       return;
     } else if (replyContainer.style.maxHeight) {
