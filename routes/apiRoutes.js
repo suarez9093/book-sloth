@@ -10,26 +10,34 @@ const connection = mysql.createConnection({
 });
 
 router.get("/", (req, res) => {
-  const users = "SELECT * FROM User";
-  connection.query(users, (err, results, fields) => {
+  const query = "SELECT * FROM User";
+  connection.query(query, (err, results, fields) => {
     if (err) throw err;
     res.send(results);
   });
 });
 router.post("/", (req, res) => {
   const { first_name, last_name, email, photo, message, replies } = req.body;
-  const insertQuery = `INSERT INTO USER (first_name, last_name, email, photo, message, replies) VALUES ('${first_name}','${last_name}',"${email}",'${photo}',"${message}", "${
+  const query = `INSERT INTO USER (first_name, last_name, email, photo, message, replies) VALUES ('${first_name}','${last_name}',"${email}",'${photo}',"${message}", "${
     replies || "[]"
   }");`;
-
-  connection.query(insertQuery, async (err, results, fields) => {
+  connection.query(query, async (err, results, fields) => {
     try {
-      if (err) throw err;
-      console.log("results", results);
       res.send(results);
+      if (err) {
+        throw err;
+      }
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   });
+});
+
+router.delete("/:id", (req, res) => {
+  const query = `DELETE FROM USER WHERE user_id=${req.params}`;
+  res.send(query);
+  //   connection.query(query, (err, results, fields) => {
+  //     if (err) throw err;
+  //   });
 });
 module.exports = router;
