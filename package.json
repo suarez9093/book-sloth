@@ -2,7 +2,6 @@
   "homepage": "http://suarez9093.github.io/book-sloth",
   "name": "book-sloth",
   "version": "0.1.0",
-  "proxy": "http://localhost:3001",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -20,7 +19,7 @@
     "winston": "^3.3.3"
   },
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \"nodemon server.js\"",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

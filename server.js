@@ -12,6 +12,7 @@ const users = require("./routes/apiRoutes");
 winston.add(new winston.transports.File({ filename: "logfile.log" }));
 
 process.on("uncaughtException", (err) => {
+  console.log(err);
   winston.error(err.message, err);
   process.exit(1);
 });
