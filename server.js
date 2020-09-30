@@ -6,7 +6,7 @@ const winston = require("winston");
 const errors = require("./middleware/error");
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const users = require("./routes/apiRoutes");
 
 winston.add(new winston.transports.File({ filename: "logfile.log" }));
@@ -20,9 +20,9 @@ process.on("unhandledRejection", (err) => {
   process.exit(1);
 });
 
-winston.exceptions.handle(
-  new winston.transports.File({ filename: "uncaughtExceptions.log" })
-);
+// winston.exceptions.handle(
+//   new winston.transports.File({ filename: "uncaughtExceptions.log" })
+// );
 
 /* MiddleWare 
 =======================================================
