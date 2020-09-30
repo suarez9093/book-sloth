@@ -19,16 +19,14 @@ const connection = mysql.createConnection({
 
 // Get
 router.get("/", (req, res) => {
-  const query = "SELECT * FROM User";
+  const query = "SELECT * FRM User";
   connection.query(query, async (err, results, fields) => {
-    try {
-      await results;
-      if (err) throw err;
-      res.send(results);
-    } catch (err) {
-      console.error(err);
+    if (err) {
+      throw new Error(err);
     }
+    res.send(results);
   });
+  connection.end();
 });
 // Post
 router.post("/", (req, res) => {
@@ -37,40 +35,25 @@ router.post("/", (req, res) => {
     replies || "[]"
   }");`;
   connection.query(query, async (err, results, fields) => {
-    try {
-      await results;
-      if (err) throw err;
-      res.send(results);
-    } catch (err) {
-      console.error(err);
-    }
+    if (err) throw new Error(err);
+    res.send(results);
   });
 });
 // Put
 router.put("/:id", (req, res) => {
   const { first_name, last_name, email, photo, message } = req.body;
   const query = `UPDATE USER SET first_name="${first_name}",last_name="${last_name}",email="${email}",photo="${photo}",message="${message} "WHERE user_id=${req.params.id}`;
-  connection.query(query, async (err, results, fields) => {
-    try {
-      await results;
-      if (err) throw err;
-      res.send(results);
-    } catch (err) {
-      console.error(err);
-    }
+  connection.query(query, (err, results, fields) => {
+    if (err) throw new Error(err);
+    res.send(results);
   });
 });
 //
 router.delete("/:id", (req, res) => {
   const query = `DELETE FROM USER WHERE user_id=${req.params.id}`;
   connection.query(query, async (err, results, fields) => {
-    try {
-      await results;
-      if (err) throw err;
-      res.send(results);
-    } catch (err) {
-      console.error(err);
-    }
+    if (err) throw new Error(err);
+    res.send(results);
   });
 });
 module.exports = router;

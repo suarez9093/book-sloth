@@ -2,10 +2,27 @@
 =======================================================
 */
 require("dotenv").config();
+const winston = require("winston");
+const errors = require("./middleware/error");
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
 const users = require("./routes/apiRoutes");
+
+winston.add(new winston.transports.File({ filename: "logfile.log" }));
+
+process.on("uncaughtException", (err) => {
+  winston.error(err.message, err);
+  process.exit(1);
+});
+process.on("unhandledRejection", (err) => {
+  winston.error(err.message, err);
+  process.exit(1);
+});
+
+winston.exceptions.handle(
+  new winston.transports.File({ filename: "uncaughtExceptions.log" })
+);
 
 /* MiddleWare 
 =======================================================
@@ -22,6 +39,7 @@ app.use((req, res, next) => {
   );
   next();
 });
+app.use(errors);
 
 /* Starting Server 
 =======================================================
