@@ -21,10 +21,6 @@ process.on("unhandledRejection", (err) => {
   process.exit(1);
 });
 
-// winston.exceptions.handle(
-//   new winston.transports.File({ filename: "uncaughtExceptions.log" })
-// );
-
 /* MiddleWare 
 =======================================================
 */
