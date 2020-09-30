@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./card.css";
 
 function Card({ users }) {
-  // Destructuring keys from state passed through context in the Cards component
+  // Destructuring users object passed to the Card components via props.
   const { message, first_name, last_name, photo, likes, replies } = users;
 
   // Used for the button to toggle replies button image from > to upside down. Consider renaing
@@ -20,25 +20,32 @@ function Card({ users }) {
     const card = cardResContainer.parentNode;
     // get card sibling
     const replyContainer = card.nextSibling;
-    // If there is not a card container??????? look into this line maybe add if there is not a style of maxHeight
+    // If there is not a reply card container return. If not and you click on a button of a card that does not have a reply you will get a "Cannot read property 'style' of null" error
     if (!replyContainer) {
       return;
+      // Otherwise if there is a maxHeigt property set the height to null.
     } else if (replyContainer.style.maxHeight) {
       replyContainer.style.maxHeight = null;
     } else {
+      // Else if there is a maxHeight set the scrollHeigt of the container to the property scrollHeight in px;
       replyContainer.style.maxHeight = replyContainer.scrollHeight + "px";
     }
+    // Set is hidden to true or false.
     setIsHidden((prevState) => !prevState);
   }
 
+  // Toggle the heart button
   function toggleLike(e) {
+    // The current heart button is whichever button the user clicked on.
     const heartBtn = e.target;
-    console.dir(heartBtn);
+    // if there is not a color on the heart button set it to red and increase the size
     if (heartBtn.style.color === "") {
       heartBtn.style.color = "red";
       heartBtn.style.fontSize = "1.25em";
+      // Set the value of likes + 1 (Passed from the users.json. In the future would need to be referenced to a certain message and not to the user obj)
       setLike((prevState) => prevState + 1);
     } else {
+      // Otherwise if it is already liked set the color to none and set the font size back to original size and subtract 1 from value
       heartBtn.style.color = "";
       heartBtn.style.fontSize = "1em";
       setLike((prevState) => prevState - 1);
@@ -46,9 +53,12 @@ function Card({ users }) {
   }
 
   function toggleModal(e) {
+    // Selecting the parent div of the modal named overlay.
     let overlay = document.querySelector(".overlay");
+    // If the button clicked has a classname of the following (share button on the card) set the display to block
     if (e.target.className === "fas fa-share-alt") {
       overlay.style.display = "block";
+      // Otherwise if the button clicked is called modal-button (close button in modal) set the display to none
     } else if (e.target.className === "modal-btn") {
       overlay.style.display = "none";
     }
@@ -59,7 +69,9 @@ function Card({ users }) {
       {/* Message Container
     ===========================================================
     */}
+      {/* Only if there is a message that the user has written then generate the following */}
       {message && (
+        // The container that holds all three cards
         <div className="card-container">
           <div className="card">
             <img className="card-img" src={photo} alt="user profile" />
