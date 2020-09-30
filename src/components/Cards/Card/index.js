@@ -15,9 +15,9 @@ function Card({ users }) {
     // The the button
     const button = e.target;
     // Get the button's parent node which is the card-response-container
-    const cardResContainer = button.parentNode;
+    const dropdownBtnContainer = button.parentNode;
     // get card response container parent
-    const card = cardResContainer.parentNode;
+    const card = dropdownBtnContainer.parentNode;
     // get card sibling
     const replyContainer = card.nextSibling;
     // If there is not a reply card container return. If not and you click on a button of a card that does not have a reply you will get a "Cannot read property 'style' of null" error
@@ -73,6 +73,7 @@ function Card({ users }) {
       {message && (
         // The container that holds all three cards
         <div className="card-container">
+          {/* Each individual card */}
           <div className="card">
             <img className="card-img" src={photo} alt="user profile" />
             <div className="card-main">
@@ -83,7 +84,7 @@ function Card({ users }) {
               <div className="interact-icons">
                 <div className="interact-icon">
                   <span>
-                    <i className="fas fa-share reply-icon"></i> 12
+                    <i className="fas fa-share"></i> 12
                   </span>
                 </div>
                 <div className="interact-icon">
@@ -96,7 +97,7 @@ function Card({ users }) {
                 </div>
               </div>
             </div>
-            <div className="card-response-container">
+            <div className="dropdown-btn-container">
               <button onClick={toggleReplies} className="card-btn">
                 12 min
                 {isHidden && (
@@ -123,8 +124,8 @@ function Card({ users }) {
                   </p>
                   <p className="card-message">{replies[0].message} </p>
                 </div>
-                <div className="card-response-container">
-                  <span className="card-btn-text">4 hr</span>
+                <div className="card-time-text-container">
+                  4 <span>hr</span>
                 </div>
               </div>
             </div>
